@@ -21,10 +21,19 @@ RUN addgroup --gid 1337 workshop; \
     adduser --gid 1337 --uid 1337 --disabled-password --gecos "" workshop; \
     echo "workshop:aceCLI!" | chpasswd;
 
+# Create privilege separation directory
+RUN mkdir -p /run/sshd
+
 # Add user to sudoers
 RUN usermod -aG sudo workshop
 
-WORKDIR /home/workshopuser
+COPY ex/ /bin/
+
+RUN chmod o+x /bin/ex*
+
+USER workshop
+
+WORKDIR /home/workshop
 
 # Create directory structure to play with
 RUN mkdir -p folder_a/folder_b/folder_c; \
@@ -35,9 +44,11 @@ RUN mkdir -p folder_a/folder_b/folder_c; \
     touch folder_a/folder_b/folder_d/folder_e/file3.txt; \
     echo "This is a hidden file!" > folder_a/folder_b/folder_d/folder_f/.file4.txt;
 
-# Create privilege separation directory
-RUN mkdir -p /run/sshd
+COPY instructions.txt /etc/homework/.hidden.txt
 
 # Start SSH
 EXPOSE 22
+
+USER root
+
 CMD ["/usr/sbin/sshd", "-D"]

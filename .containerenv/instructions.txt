@@ -1,0 +1,2 @@
+Do not modify the contents of this file!
+Copy this file to folder_a under your home directory, then rename it to nothidden.txt
