@@ -1,15 +1,14 @@
-version: "3.8"
-
-# Needs to be run in a docker swarm for CPU limits
+version: "2.4"
 
 services:
   workshopbox:
     build: .
     image: ace-cli-box
     ports:
-      - "2200:22"
+      - "2200-2270:22"
     hostname: ace-cli-${id}
     deploy:
+      replicas: 70
       resources:
         limits:
           cpus: '0.2'
