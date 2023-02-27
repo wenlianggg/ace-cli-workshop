@@ -6,7 +6,7 @@ services:
     image: ace-cli-box
     ports:
       - "2200-2270:22"
-    hostname: ace-cli-${id}
+    restart: unless-stopped
     deploy:
       replicas: 70
       resources:

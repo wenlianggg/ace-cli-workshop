@@ -11,7 +11,7 @@ RUN apt-get update; \
     apt-get -y upgrade;
 
 # Install required dependencies
-RUN apt-get install -y openssh-server git-all sudo;
+RUN apt-get install -y openssh-server git-all build-essential htop netcat net-tools iputils-ping sysstat sudo;
 
 # Install other packages
 RUN apt-get -y install curl unzip man-db nano vim dnsutils tree;
@@ -34,6 +34,8 @@ RUN chmod o+x /bin/ex*
 USER workshop
 
 WORKDIR /home/workshop
+
+COPY copypasta.txt pasta/
 
 # Create directory structure to play with
 RUN mkdir -p folder_a/folder_b/folder_c; \
