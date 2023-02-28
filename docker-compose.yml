@@ -17,3 +17,20 @@ services:
         reservations:
           cpus: '0.02'
           memory: 30M
+  
+  instructorbox:
+    build: .
+    image: ace-cli-box
+    ports:
+      - "3000-3004:22"
+    restart: unless-stopped
+    deploy:
+      replicas: 4
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 512M
+          pids: 1000
+        reservations:
+          cpus: '0.05'
+          memory: 100M
