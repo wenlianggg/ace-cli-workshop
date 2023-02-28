@@ -15,8 +15,8 @@ services:
           memory: 256M
           pids: 1000
         reservations:
-          cpus: '0.02'
-          memory: 30M
+          cpus: '0.04'
+          memory: 100M
   
   instructorbox:
     build: .
@@ -32,5 +32,5 @@ services:
           memory: 512M
           pids: 1000
         reservations:
-          cpus: '0.05'
-          memory: 100M
+          cpus: '0.1'
+          memory: 200M
