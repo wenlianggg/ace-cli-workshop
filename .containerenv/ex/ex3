@@ -1,0 +1,8 @@
+#!/usr/bin/env python3
+
+import os
+
+if "YOUR_NAME" in os.environ:
+    print(f"[+] If your name is '{os.environ['YOUR_NAME']}', then you have successfully completed exercise 2!")
+else:
+    print("[!] You need to set the environment variable 'YOUR_NAME' to your name to complete this exercise.")

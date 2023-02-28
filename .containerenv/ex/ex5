@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+
+import hashlib
+
+piped_input = str(int(input("[?] How many occurences of the word 'were' were there? ")))
+
+if hashlib.md5(piped_input.encode()).hexdigest() == "1679091c5a880faf6fb5e6087eb1b2dc":
+    print("[+] Good, you completed the exercise!")
+else:
+    print("[!] You provided a wrong answer... :(")

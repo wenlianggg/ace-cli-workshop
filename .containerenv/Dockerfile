@@ -7,7 +7,7 @@ ARG DEBIAN_FRONTEND=noninteractive
 RUN yes | unminimize
 
 # Update pkg cache & Install SSH server & Restore manpages
-RUN apt-get update; \ 
+RUN apt-get update ; \ 
     apt-get -y upgrade;
 
 # Install required dependencies
@@ -20,6 +20,10 @@ RUN apt-get -y install curl unzip man-db nano vim dnsutils tree;
 RUN addgroup --gid 1337 workshop; \
     adduser --gid 1337 --uid 1337 --disabled-password --gecos "" workshop; \
     echo "workshop:aceCLI!" | chpasswd;
+
+RUN addgroup --gid 1414 pastaman; \
+    adduser --gid 1414 --uid 1414 --disabled-password --gecos "" pastaman; \
+    echo "pastaman:pasta" | chpasswd;
 
 # Create privilege separation directory
 RUN mkdir -p /run/sshd
@@ -35,7 +39,19 @@ USER workshop
 
 WORKDIR /home/workshop
 
-COPY copypasta.txt pasta/
+# Put in the copypasta files
+COPY --chown=workshop:workshop pasta/* pasta/
+
+USER root
+
+# Set all secret files to no RWX
+RUN chmod 000 pasta/secret*.txt
+
+# Change ownership of files
+RUN chown pastaman:pastaman pasta/secret2.txt; \
+    chown root:root pasta/secret3.txt;
+
+USER workshop
 
 # Create directory structure to play with
 RUN mkdir -p folder_a/folder_b/folder_c; \

@@ -1,0 +1,10 @@
+#!/usr/bin/env python3
+
+import hashlib
+
+user_input = str(int(input("[?] What is the group ID of the 'games' account? ")))
+
+if hashlib.md5(user_input.encode()).hexdigest() == "e48e13207341b6bffb7fb1622282247b":
+    print("[+] Good, you completed the exercise!")
+else:
+    print("[!] You provided a wrong answer... :(")

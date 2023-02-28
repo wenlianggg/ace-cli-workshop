@@ -5,7 +5,7 @@ services:
     build: .
     image: ace-cli-box
     ports:
-      - "2200-2270:22"
+      - "2201-2270:22"
     restart: unless-stopped
     deploy:
       replicas: 70
