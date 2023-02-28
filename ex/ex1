@@ -7,12 +7,10 @@ import hashlib
 if not os.path.exists("/etc/homework/.hidden.txt"):
     print("[!] It seems that the original file is missing, put it back!")
     sys.exit(1)
-
-if os.path.exists("/home/workshop/folder_a/.hidden.txt"):
+elif os.path.exists("/home/workshop/folder_a/.hidden.txt"):
     print("[?] Have you forgotten to rename .hidden.txt?")
     sys.exit(1)
-
-if os.path.exists("/home/workshop/folder_a/nothidden.txt"):
+elif os.path.exists("/home/workshop/folder_a/nothidden.txt"):
     print("[+] Good, we found the file we were looking for!")
     with open("/home/workshop/folder_a/nothidden.txt", "rb") as f:
         contents = f.read()
@@ -20,3 +18,9 @@ if os.path.exists("/home/workshop/folder_a/nothidden.txt"):
             print("[+] Contents of the file matched, you completed the exercise!")
         else:
             print("[!] The contents of the file did not match :(")
+elif os.path.exists("/etc/homework/.hidden.txt"):
+    print("[!] Did you even do anything?")
+    sys.exit(1)
+else:
+    print("[!] Did you delete the files? :(")
+    sys.exit(1)
