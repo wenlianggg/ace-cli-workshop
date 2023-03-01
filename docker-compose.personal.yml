@@ -1,0 +1,15 @@
+version: "2.4"
+
+services:
+  workshopbox1:
+    build: .
+    image: ace-cli-box
+    ports:
+      - "127.0.0.1:3201:22"
+    restart: unless-stopped
+  workshopbox2:
+    build: .
+    image: ace-cli-box
+    ports:
+      - "127.0.0.1:3202:22"
+    restart: unless-stopped

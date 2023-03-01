@@ -1,2 +1,27 @@
-# ace-cli-workshop
+# ACE Command Line Fundamentals (Lab)
 Introductory command line workshop, presented by the SCIS ACE Programme.
+
+## Creating your own Lab environment
+_Pre-requisites: Docker and Git installed on your computer_
+
+1. Clone this git repository to download the code
+```bash
+git clone https://github.com/wenlianggg/ace-cli-workshop 
+```
+
+2. Run Docker Compose to build and run this Docker image. \
+Please bear in mind that this step might take up to **10 minutes** depending on the speed of your computer and internet bandwidth.
+```bash
+docker compose -f docker-compose.personal.yml build
+```
+
+3. Start the Docker containers.
+```bash
+docker compose -f docker-compose.personal.yml up -d
+```
+
+4. You should now be able to SSH into your own container. Please note that only ports 3201 and 3202 are made available in the docker-compose.personal.yml as it is meant for your use only.
+```bash
+ssh workshop@localhost -p 3201
+```
+When prompted, provide the password `aceCLI!`
