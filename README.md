@@ -9,19 +9,24 @@ _Pre-requisites: Docker and Git installed on your computer_
 git clone https://github.com/wenlianggg/ace-cli-workshop 
 ```
 
-2. Run Docker Compose to build and run this Docker image. \
+2. Change your directory into the repository with the code
+```bash
+cd ace-cli-workshop
+```
+
+3. Run Docker Compose to build and run this Docker image. \
 Please bear in mind that this step might take up to **10 minutes** depending on the speed of your computer and internet bandwidth.
 If `docker compose` does not work on your computer, try `docker-compose`
 ```bash
 docker compose -f docker-compose.personal.yml build
 ```
 
-3. Start the Docker containers.
+4. Start the Docker containers.
 ```bash
 docker compose -f docker-compose.personal.yml up -d
 ```
 
-4. You should now be able to SSH into your own container. Please note that only ports 3201 and 3202 are made available in the docker-compose.personal.yml as it is meant for your use only.
+5. You should now be able to SSH into your own container. Please note that only ports 3201 and 3202 are made available in the docker-compose.personal.yml as it is meant for your use only.
 ```bash
 ssh workshop@localhost -p 3201
 ```
