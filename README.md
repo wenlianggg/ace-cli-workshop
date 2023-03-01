@@ -33,3 +33,10 @@ ssh workshop@localhost -p 3201
 When prompted, provide the password `aceCLI!`
 
 If you're curious about how the lab environment is set up with Docker, please check out the contents of `Dockerfile` to see how the image is created.
+
+## Windows Users: Beyond the Lab Environment
+Mac OS is a Unix-based operating system, and naturally has shell capabilities similar to the Ubuntu lab environment provided.
+
+For Windows users, you will need to perform additional steps to run Linux on your machine through the Windows Subsystem for Linux (WSL).
+
+You may read the [Microsoft Guide on Installing WSL](https://learn.microsoft.com/en-us/windows/wsl/install) for more information.
