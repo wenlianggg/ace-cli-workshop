@@ -26,8 +26,10 @@ docker compose -f docker-compose.personal.yml build
 docker compose -f docker-compose.personal.yml up -d
 ```
 
-5. You should now be able to SSH into your own container. Please note that only ports 3201 and 3202 are made available in the docker-compose.personal.yml as it is meant for your use only.
+5. You should now be able to SSH into your own container. Please note that only ports 3201 and 3202 are made available in the `docker-compose.personal.yml` as it is meant for your use only.
 ```bash
 ssh workshop@localhost -p 3201
 ```
 When prompted, provide the password `aceCLI!`
+
+If you're curious about how the lab environment is set up with Docker, please check out the contents of `Dockerfile` to see how the image is created.
