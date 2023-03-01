@@ -4,7 +4,7 @@ import hashlib
 
 user_input = str(int(input("[?] What is the group ID of the 'games' account? ")))
 
-if hashlib.md5(user_input.encode()).hexdigest() == "e48e13207341b6bffb7fb1622282247b":
+if hashlib.md5(user_input.encode()).hexdigest() == "072b030ba126b2f4b2374f342be9ed44":
     print("[+] Good, you completed the exercise!")
 else:
     print("[!] You provided a wrong answer... :(")
