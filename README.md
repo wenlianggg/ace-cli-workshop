@@ -11,6 +11,7 @@ git clone https://github.com/wenlianggg/ace-cli-workshop
 
 2. Run Docker Compose to build and run this Docker image. \
 Please bear in mind that this step might take up to **10 minutes** depending on the speed of your computer and internet bandwidth.
+If `docker compose` does not work on your computer, try `docker-compose`
 ```bash
 docker compose -f docker-compose.personal.yml build
 ```
